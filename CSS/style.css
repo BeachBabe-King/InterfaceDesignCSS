@@ -1,0 +1,154 @@
+/* turns background black */
+body {
+    background-color: black;
+    color: white;
+    min-height: 100vh;
+    margin: 1rem;
+}
+
+/* creates glare effect across the page */
+#css-zen-garden {
+    background: linear-gradient(135deg, #000000, #0a2110, #000000);
+}
+
+header {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #00ff2b;
+}
+
+/* main heading font and glow */
+h1, h2 {
+    font-family: "Bitcount", sans-serif;
+    color: #36ba01;
+    text-shadow: 0 0 30px limegreen, 0 0 60px limegreen;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    margin: 1.2rem 0;
+}
+
+/* makes h2 smaller than h1 */
+h2 {
+    font-size: 2.2rem;
+    padding-left: 15px;
+    margin-left: 10px;
+}
+
+/* all other heading font/color */
+h3, h4, h5, h6 {
+    font-family: "Bitcount", sans-serif;
+    color: #00ff2b;
+    margin-top: 2em;
+    font-size: 2rem;
+
+}
+
+/* heading blink cursor */
+h3::after, h4::after, h5::after, h6::after {
+    content: "|";
+    animation: blink 1s infinite;
+    color: #00ff2b;
+    margin-left: .5em;
+}
+
+/* manages the blinking animation */
+@keyframes blink {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0;
+    }
+}
+
+/* targets abbreviations with title attribute */
+abbr[title] {
+    text-decoration: Highlight underline;
+    text-decoration-color: #36ba01;
+    cursor: help;
+}
+
+/* main text */
+p {
+    font-family: "DotGothic16", sans-serif;
+    color: #00ff2b;
+}
+
+/* links */
+a {
+    font-family: "DotGothic16", sans-serif;
+    color: #00ffff;
+    text-decoration: none;
+}
+
+/* on hover makes link glow */
+a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 5px #00ffff,0 0 10px #00ffff, 0 0 20px #ffffff;                    /* Outer white glow */
+    background: rgba(0, 255, 255, 0.1);
+    border-radius: 100px;
+    transition: all 0.3s ease;
+    font-size: 1.3rem;
+}
+
+/* puts aside in columns under main text */
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+/* removes blinking cursor from wrapper cells */
+.wrapper h3::after {
+    display: none;
+}
+
+/* removes ul dots */
+nav ul{
+    list-style: none ;
+    padding: 0;
+}
+
+/* ul immediately after h3 */
+h3 + ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* lift effect on wrapper cells */
+.wrapper > div:hover {
+    transform: translateY(-5px);
+}
+
+/* adds border to surround wrapper cells  */
+.design-selection, .design-archives, .zen-resources {
+    padding: 1rem;
+    border: 1px solid #36ba01;
+    position: relative;
+}
+
+/* adds the scanline image to wrapper cell background */
+.design-selection::before, .design-archives::before, .zen-resources::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../img/scanline white.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: .17; /* adjusts transparancy */
+    z-index: -1; /* Puts behind the text */
+}
+
+/* all footer links after the first one */
+footer a ~ a {
+    margin-left: 1rem;
+    border-left: 1px solid #36ba01;
+    padding-left: 1rem;
+}
